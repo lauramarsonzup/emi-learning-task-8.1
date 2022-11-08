@@ -21,8 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let moviesAPI = MoviesAPI()
         
-        let homeController = window!.rootViewController as! MoviesViewController
+        let homeController = (window!.rootViewController as! UINavigationController).topViewController as! MoviesViewController
         homeController.moviesAPI = moviesAPI
+        homeController.movieSessionsAPI = MovieSessionsAPI()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
